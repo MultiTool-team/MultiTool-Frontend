@@ -26,15 +26,16 @@ const Temperature: React.FC<TemperatureData> = ({
   return (
     <div className='temperatureSection mx-auto'>
       <div className='temperature flex justify-center'>
-        <span className={`text text-center ${sizes[size]}`}>{temperature}</span>
-        <span className={`text ${sizes[size]}`}>&deg;</span>
+        <h2 className={`text text-center ${sizes[size]}`}>
+          {temperature}&deg;
+        </h2>
       </div>
       {feelsLikeTemperature && (
         <div className='group flex justify-center py-5'>
-          <span className={`text ${feelsLikeSize[size]} `}>
+          <h3 className={`text ${feelsLikeSize[size]} `}>
             Feels like:{' '}
             <span className='sm:px-2'>{feelsLikeTemperature}&deg;</span>
-          </span>
+          </h3>
         </div>
       )}
     </div>
