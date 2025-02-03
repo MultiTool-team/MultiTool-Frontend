@@ -13,9 +13,9 @@ import Blog from './Blog/Blog';
 import PreviewWeather from './Weather/PreviewWeather';
 import Quote from './Main/Quote';
 import AboutDevelopers from './Main/AboutDevelopers';
-import Badge from './shared/Badge';
-
+import Temperature from './Weather/Temperature';
 // Shared
+import Badge from './shared/Badge';
 
 export {
   Header,
@@ -30,4 +30,5 @@ export {
   Quote,
   AboutDevelopers,
   Badge,
+  Temperature,
 };

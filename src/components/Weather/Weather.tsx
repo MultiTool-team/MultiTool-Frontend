@@ -1,16 +1,12 @@
 import React from 'react';
 import { SEO } from '..';
-import TemperatureComponent from './TemperatureComponent';
+import PreviewWeather from './PreviewWeather';
 
 const Weather: React.FC = () => {
   return (
     <div>
       <SEO title='Weather' />
-      <TemperatureComponent
-        size='large'
-        temperature={5}
-        optional={true}
-      />
+      <PreviewWeather />
       {/*
       <div className='comingSoon'>
         <div>
