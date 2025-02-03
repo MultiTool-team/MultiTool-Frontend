@@ -11,6 +11,11 @@ import Blog from './Blog/Blog';
 
 // Additional
 import PreviewWeather from './Weather/PreviewWeather';
+import Quote from './Main/Quote';
+import AboutDevelopers from './Main/AboutDevelopers';
+import Badge from './shared/Badge';
+
+// Shared
 
 export {
   Header,
@@ -22,4 +27,7 @@ export {
   Friends,
   Blog,
   PreviewWeather,
+  Quote,
+  AboutDevelopers,
+  Badge,
 };
