@@ -1,60 +1,58 @@
-@import "tailwindcss";
-@import "tailwindcss/preflight.css" layer(base);
+@import 'tailwindcss';
+@import 'tailwindcss/preflight.css' layer(base);
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 * {
-    @apply transition-colors duration-500
-
+  @apply transition-colors duration-500;
 }
 
 @layer base {
-    .bg {
-        @apply bg-[var(--bg-light)] dark:bg-[var(--bg-dark)]
-    }
+  .bg {
+    @apply bg-[var(--bg-light)] dark:bg-[var(--bg-dark)];
+  }
 
-    .title {
-        @apply text-[var(--title-light)] dark:text-[var(--title-dark)] tracking-wide font-extrabold sm:text-xl lg:text-2xl
-    }
+  .title {
+    @apply font-extrabold tracking-wide text-[var(--title-light)] sm:text-xl lg:text-2xl dark:text-[var(--title-dark)];
+  }
 
-    .text-alt {
-        @apply text-[var(--text-light)] dark:text-[var(--text-dark)] tracking-wide
-    }
+  .text-alt {
+    @apply tracking-wide text-[var(--text-light)] dark:text-[var(--text-dark)];
+  }
 
-    .text {
-        @apply dark:text-[var(--text-light)] text-[var(--text-dark)] font-medium tracking-wider select-none
-    }
+  .text {
+    @apply font-medium tracking-wider text-[var(--text-dark)] select-none dark:text-[var(--text-light)];
+  }
 
-    .scale {
-        @apply !transition-all !duration-300 hover:scale-125
-    }
+  .scale {
+    @apply !transition-all !duration-300 hover:scale-125;
+  }
 
-    .durationAll-500 {
-        @apply !transition-all !duration-500
-    }
+  .durationAll-500 {
+    @apply !transition-all !duration-500;
+  }
 
-    /* .standart-section-padding {
+  /* .standart-section-padding {
         @apply
     } */
 }
 
 @theme {
-    --bg-light: #E3E2DF;
-    --bg-dark: #1A1A1D;
+  --bg-light: #e3e2df;
+  --bg-dark: #1a1a1d;
 
-    --title-light: #5D001E;
-    --title-dark: #C3073F; 
+  --title-light: #5d001e;
+  --title-dark: #c3073f;
 
-    --text-light: #1E1E1E;
-    --text-dark: #ECD06F;
+  --text-light: #1e1e1e;
+  --text-dark: #ecd06f;
 
-    --border-light: #9A1750;
-    --border-dark: #950740;
+  --border-light: #9a1750;
+  --border-dark: #950740;
 
-    --additional-text-light: #E3AFBC;
-    --additional-text-dark: #4E4E50;
+  --additional-text-light: #e3afbc;
+  --additional-text-dark: #4e4e50;
 
-    --support-light: #EE4C7C;
-    --support-dark: #C3073F;
+  --support-light: #ee4c7c;
+  --support-dark: #c3073f;
 }
-
