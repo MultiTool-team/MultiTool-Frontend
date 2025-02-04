@@ -14,31 +14,12 @@ import { BrowserRouter, Route, Routes } from 'react-router';
 
 function App() {
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
-  const PAGES: {
-    path: string;
-    element: JSX.Element[];
-  }[] = [
-    {
-      path: '',
-      element: [<MainPage />],
-    },
-    {
-      path: 'weather',
-      element: [<Weather />],
-    },
-    {
-      path: 'cinema',
-      element: [<Cinema />],
-    },
-
-    {
-      path: 'blog',
-      element: [<Blog />],
-    },
-    {
-      path: 'friends',
-      element: [<Friends />],
-    },
+  const PAGES: { path: string; element: JSX.Element }[] = [
+    { path: '', element: <MainPage /> },
+    { path: 'weather', element: <Weather /> },
+    { path: 'cinema', element: <Cinema /> },
+    { path: 'blog', element: <Blog /> },
+    { path: 'friends', element: <Friends /> },
   ];
 
   return (
@@ -50,8 +31,9 @@ function App() {
         <Header darkMode={darkMode} />
         <Container>
           <Routes>
-            {PAGES.map(page => (
+            {PAGES.map((page, index) => (
               <Route
+                key={index}
                 path={`/${page.path}`}
                 element={page.element}
               />

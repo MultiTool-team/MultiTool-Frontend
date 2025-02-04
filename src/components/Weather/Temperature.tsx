@@ -1,8 +1,8 @@
 // temporary store the data here. Move the props data to another file later.
 interface TemperatureData {
   size: ComponentSizes;
-  temperature: number;
-  feelsLikeTemperature?: number;
+  temperature: number | undefined;
+  feelsLikeTemperature: number | undefined;
 }
 
 type ComponentSizes = 'small' | 'medium' | 'large';
@@ -27,14 +27,20 @@ const Temperature: React.FC<TemperatureData> = ({
     <div className='temperatureSection mx-auto'>
       <div className='temperature flex justify-center'>
         <h2 className={`text text-center ${sizes[size]}`}>
-          {temperature}&deg;
+          {temperature ? <>{temperature}</> : 'unknown'}&deg;
         </h2>
       </div>
-      {feelsLikeTemperature && (
+      {feelsLikeTemperature ? (
         <div className='group flex justify-center py-5'>
           <h3 className={`text ${feelsLikeSize[size]} `}>
             Feels like:{' '}
             <span className='sm:px-2'>{feelsLikeTemperature}&deg;</span>
+          </h3>
+        </div>
+      ) : (
+        <div className='group flex justify-center py-5'>
+          <h3 className={`text-[var(--title-dark)] select-none  ${feelsLikeSize[size]} `}>
+            Feels like: <span className='sm:px-2'>unknown &deg;</span>
           </h3>
         </div>
       )}

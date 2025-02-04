@@ -16,7 +16,7 @@ import AboutDevelopers from './Main/AboutDevelopers';
 import Temperature from './Weather/Temperature';
 // Shared
 import Badge from './shared/Badge';
-
+import Warning from './shared/Toastes/Warning';
 export {
   Header,
   MainPage,
@@ -31,4 +31,5 @@ export {
   AboutDevelopers,
   Badge,
   Temperature,
+  Warning,
 };
