@@ -7,7 +7,6 @@ const Weather: React.FC = () => {
   return (
     <div>
       <SEO title='Weather' />
-
       <PreviewWeather />
     </div>
   );

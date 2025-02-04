@@ -17,6 +17,7 @@ import Temperature from './Weather/Temperature';
 // Shared
 import Badge from './shared/Badge';
 import Warning from './shared/Toastes/Warning';
+import AnimatedContainer from './shared/AnimatedContainer';
 export {
   Header,
   MainPage,
@@ -32,4 +33,5 @@ export {
   Badge,
   Temperature,
   Warning,
+  AnimatedContainer,
 };
