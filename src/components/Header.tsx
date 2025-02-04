@@ -9,7 +9,7 @@ const Header: React.FC<{ darkMode: boolean }> = ({ darkMode }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className='bg sticky top-2 mx-auto flex w-[90%] max-w-[1280px] items-center justify-between rounded-4xl border-1 border-[var(--bg-dark)] px-6 py-3 select-none sm:px-8 md:h-20 lg:w-[70%] dark:border-[var(--bg-light)]'>
+    <header className='z-40 bg sticky top-2 mx-auto flex w-[90%] max-w-[1280px] items-center justify-between rounded-4xl border-1 border-[var(--bg-dark)] px-6 py-3 select-none sm:px-8 md:h-20 lg:w-[70%] dark:border-[var(--bg-light)]'>
       <Link to='/'>
         <h2 className='title'>MultiTool.</h2>
       </Link>
