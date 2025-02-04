@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setLocation } from '../../features/locationSlice';
 import { setWeatherData, setForecastData } from '../../features/weatherSlice';
 import { RootState } from '../../store/store';
+import BackgroundVideo from './BackgroundVideo';
 
 const DA_POEBAT_MNE_API_TOKEN = 'b3071ec989aef18fa9569ff8e6ddde90';
 
@@ -82,7 +83,8 @@ const PreviewWeather = () => {
   }, [dispatch, fetchWeatherData]);
 
   return (
-    <section className='flex flex-col items-center justify-center px-3'>
+    <section className='relative flex h-120 flex-col items-center justify-center px-3'>
+      <BackgroundVideo weatherGroup={weather.weather[0].main} />
       <div>
         {error && <Warning text={error} />}
 
