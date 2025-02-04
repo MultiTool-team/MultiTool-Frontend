@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { Temperature, Warning } from '..';
-
-
+import BackgroundVideo from './BackgroundVideo';
 
 interface WeatherData {
   name: string;
@@ -56,6 +55,7 @@ const PreviewWeather = () => {
       }
       const weatherData: WeatherData = await weatherResponse.json();
       setWeatherData(weatherData);
+      console.log(weatherData);
 
       const forecastResponse = await fetch(forecastUrl);
       if (!forecastResponse.ok) {
@@ -120,7 +120,9 @@ const PreviewWeather = () => {
   }, []);
   return (
     <>
-      <section className='flex flex-col items-center justify-center px-3'>
+      <section className='relative flex h-120 flex-col items-center justify-center px-3'>
+        {/*<BackgroundVideo weatherGroup={weatherData?.weather[0].main} /> */}
+        {<BackgroundVideo weatherGroup='Clouds' />}
         <div>
           {error && <Warning text={error} />}
 
@@ -146,7 +148,7 @@ const PreviewWeather = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section>{' '}
     </>
   );
 };
