@@ -13,11 +13,13 @@ import Blog from './Blog/Blog';
 import PreviewWeather from './Weather/PreviewWeather';
 import Quote from './Main/Quote';
 import AboutDevelopers from './Main/AboutDevelopers';
-import Temperature from './Weather/Temperature';
+import Temperature from './Weather/Temperature/Temperature';
+import FeelsLikeTemperature from './Weather/FeelsLikeTemperature/FeelsLikeTemperature';
 // Shared
 import Badge from './shared/Badge';
 import Warning from './shared/Toastes/Warning';
 import AnimatedContainer from './shared/AnimatedContainer';
+import StoriesTemplate from './shared/StoriesTemplate';
 export {
   Header,
   MainPage,
@@ -32,6 +34,8 @@ export {
   AboutDevelopers,
   Badge,
   Temperature,
+  FeelsLikeTemperature,
   Warning,
   AnimatedContainer,
+  StoriesTemplate,
 };

@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 
+// Декоратор для обёртывания историй в BrowserRouter
 const preview: Preview = {
   parameters: {
     controls: {
@@ -9,6 +10,7 @@ const preview: Preview = {
       },
     },
   },
+  tags: ['autodocs'],
 };
 
 export default preview;
