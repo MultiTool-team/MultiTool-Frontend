@@ -29,12 +29,16 @@ interface weatherGroup {
 const BackgroundVideo: React.FC<weatherGroup> = ({ weatherGroup }) => {
   return (
     <video
-      src={videos[weatherGroup]}
+      className='absolute z-0 h-120 w-full overflow-hidden !rounded-[2%] object-cover px-5 blur-[1px]'
       autoPlay
       loop
       muted
-      className='absolute z-0 h-120 w-1/2 object-cover px-5 opacity-50'
-    />
+    >
+      <source
+        src={clouds_video}
+        type='video/mp4'
+      />
+    </video>
   );
 };
 

@@ -85,13 +85,18 @@ const PreviewWeather = () => {
   return (
     <section className='relative flex h-120 flex-col items-center justify-center px-3'>
       <BackgroundVideo weatherGroup={weather.weather[0].main} />
-      <div>
+      <div className='z-10'>
         {error && <Warning text={error} />}
 
         <div className='flex flex-col items-center text-4xl font-bold'>
           <span className='flex items-center gap-x-2'>
-            <FaMapMarkerAlt size={24} />
-            <p>{city || 'Unknown'}</p>
+            <FaMapMarkerAlt
+              className='text-[var(--title-dark)]'
+              size={24}
+            />
+            <p className='text-3xl font-extrabold tracking-wide text-[var(--title-dark)]'>
+              {city || 'Unknown'}
+            </p>
           </span>
 
           {weather ? (
