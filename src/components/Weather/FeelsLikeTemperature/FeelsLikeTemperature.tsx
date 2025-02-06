@@ -18,7 +18,7 @@ const FeelsLikeTemperature: React.FC<IFeelsLikeTemperature> = ({
     <div className='group flex justify-center py-5'>
       <h3 className={`text ${feelsLikeSize[size ?? 'medium']} `}>
         Feels like:{' '}
-        <span className='sm:px-2'>
+        <span className='text sm:px-2'>
           {feelsLikeTemperature ?? 'unknown'}&deg;
         </span>
       </h3>
