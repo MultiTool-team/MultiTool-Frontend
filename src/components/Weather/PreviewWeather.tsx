@@ -1,19 +1,19 @@
 import { useCallback, useEffect, useState } from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
-import { Temperature, Warning } from '..';
+import { BackgroundVideo, Temperature, Warning } from '..';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLocation } from '../../features/locationSlice';
-import { setWeatherData, setForecastData } from '../../features/weatherSlice';
 import { RootState } from '../../store/store';
-import BackgroundVideo from './BackgroundVideo';
+import { setWeatherData, setForecastData, setLocation } from '../../features';
 
-const DA_POEBAT_MNE_API_TOKEN = 'b3071ec989aef18fa9569ff8e6ddde90';
+const API_TOKEN = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 const PreviewWeather = () => {
   const [error, setError] = useState<string | null>(null);
   const dispatch = useDispatch();
 
-  const { city } = useSelector((state: RootState) => state.location);
+  const { city, latitude, longitude } = useSelector(
+    (state: RootState) => state.location
+  );
   const weather = useSelector((state: RootState) => state.weather.weatherData);
 
   const fetchWeatherData = useCallback(
@@ -21,28 +21,26 @@ const PreviewWeather = () => {
       try {
         setError(null);
 
-        const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${DA_POEBAT_MNE_API_TOKEN}&units=metric`;
-        const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${DA_POEBAT_MNE_API_TOKEN}&units=metric`;
+        const urls = [
+          `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_TOKEN}&units=metric`,
+          `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=${API_TOKEN}&units=metric`,
+        ];
 
-        const [weatherResponse, forecastResponse] = await Promise.all([
-          fetch(currentWeatherUrl),
-          fetch(forecastUrl),
-        ]);
+        const responses = await Promise.all(urls.map(url => fetch(url)));
+        if (responses.some(res => !res.ok))
+          throw new Error('Ошибка загрузки данных');
 
-        if (!weatherResponse.ok) throw new Error('Город не найден');
-        if (!forecastResponse.ok)
-          throw new Error('Не удалось получить прогноз');
-
-        const weatherData = await weatherResponse.json();
-        const forecastData = await forecastResponse.json();
+        const [weatherData, forecastData] = await Promise.all(
+          responses.map(res => res.json())
+        );
 
         dispatch(setWeatherData({ weatherData }));
-        localStorage.setItem('weather', JSON.stringify({ weatherData }));
-
         dispatch(setForecastData({ forecastData }));
+
+        localStorage.setItem('weather', JSON.stringify({ weatherData }));
         localStorage.setItem('forecast', JSON.stringify({ forecastData }));
       } catch (err) {
-        if (err instanceof Error) setError(err.message);
+        setError(err instanceof Error ? err.message : 'Неизвестная ошибка');
       }
     },
     [dispatch]
@@ -56,35 +54,34 @@ const PreviewWeather = () => {
       }
 
       navigator.geolocation.getCurrentPosition(
-        async position => {
-          const { latitude, longitude } = position.coords;
-          const reverseGeocodeUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${DA_POEBAT_MNE_API_TOKEN}&units=metric`;
-
+        async ({ coords: { latitude, longitude } }) => {
           try {
-            const response = await fetch(reverseGeocodeUrl);
+            const response = await fetch(
+              `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_TOKEN}&units=metric`
+            );
+
             if (!response.ok)
               throw new Error('Ошибка определения местоположения');
+
             const data = await response.json();
-
             dispatch(setLocation({ city: data.name, latitude, longitude }));
-
             fetchWeatherData(data.name);
           } catch (err) {
-            if (err instanceof Error) setError(err.message);
+            setError(
+              err instanceof Error ? err.message : 'Ошибка загрузки геолокации'
+            );
           }
         },
-        () => {
-          setError('Не удалось определить местоположение');
-        }
+        () => setError('Не удалось определить местоположение')
       );
     };
 
-    getUserLocation();
-  }, [dispatch, fetchWeatherData]);
+    if (!city && !latitude && !longitude) getUserLocation();
+  }, [city, latitude, longitude, dispatch, fetchWeatherData]);
 
   return (
     <section className='relative flex h-120 flex-col items-center justify-center px-3'>
-      <BackgroundVideo weatherGroup={weather.weather[0].main} />
+      <BackgroundVideo weatherGroup={weather?.weather[0]?.main} />
       <div className='z-10'>
         {error && <Warning text={error} />}
 
@@ -99,19 +96,17 @@ const PreviewWeather = () => {
             </p>
           </span>
 
-          {weather ? (
-            <Temperature
-              size='large'
-              temperature={Math.round(weather.main.temp)}
-              feelsLikeTemperature={Math.round(weather.main.feels_like)}
-            />
-          ) : (
-            <Temperature
-              size='large'
-              temperature={undefined}
-              feelsLikeTemperature={undefined}
-            />
-          )}
+          <Temperature
+            size='large'
+            temperature={
+              weather?.main?.temp ? Math.round(weather.main.temp) : undefined
+            }
+            feelsLikeTemperature={
+              weather?.main?.feels_like
+                ? Math.round(weather.main.feels_like)
+                : undefined
+            }
+          />
         </div>
       </div>
     </section>

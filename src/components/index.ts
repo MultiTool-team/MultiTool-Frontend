@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from './Header/Header';
 import MainPage from './Main/MainPage';
 import Container from './Container';
 import SEO from './SEO/Seo';
@@ -15,6 +15,8 @@ import Quote from './Main/Quote';
 import AboutDevelopers from './Main/AboutDevelopers';
 import Temperature from './Weather/Temperature/Temperature';
 import FeelsLikeTemperature from './Weather/FeelsLikeTemperature/FeelsLikeTemperature';
+import ThemeIcon from './Header/ThemeIcon';
+import BackgroundVideo from './Weather/BackgroundVideo';
 // Shared
 import Badge from './shared/Badge';
 import Warning from './shared/Toastes/Warning';
@@ -38,4 +40,6 @@ export {
   Warning,
   AnimatedContainer,
   StoriesTemplate,
+  ThemeIcon,
+  BackgroundVideo,
 };

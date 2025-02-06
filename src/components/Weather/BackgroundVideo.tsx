@@ -1,10 +1,12 @@
 import React from 'react';
-import clouds_video from '../../assets/weather/clouds_video.mp4';
-import clear_video from '../../assets/weather/clear_video.mp4';
-import snow_video from '../../assets/weather/snow_video.mp4';
-import rain_video from '../../assets/weather/rain_video.mp4';
-import drizzle_video from '../../assets/weather/drizzle_video.mp4';
-import thunderstorm_video from '../../assets/weather/thunderstorm_video.mp4';
+import {
+  thunderstorm_video,
+  drizzle_video,
+  rain_video,
+  snow_video,
+  clear_video,
+  clouds_video,
+} from '../../assets/weather';
 
 interface VideoData {
   [key: string]: string; // videos are stored in assets

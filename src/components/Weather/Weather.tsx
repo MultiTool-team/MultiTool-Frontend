@@ -1,17 +1,18 @@
 import React from 'react';
-import { SEO } from '..';
+import { PreviewWeather, SEO } from '..';
 // import GeoLocation from './GeoLocation.tsx';
-import PreviewWeather from './PreviewWeather';
 
 const Weather: React.FC = () => {
   return (
-    <div>
-      <SEO title='Weather' />
+    <>
+      <SEO
+        title='Weather Forecast | MultiTool'
+        description="Get real-time weather updates, forecasts, and insights with MultiTool's weather tracker."
+        keywords='weather, forecast, temperature, MultiTool, real-time weather'
+      />
       <PreviewWeather />
-    </div>
+    </>
   );
 };
 
 export default Weather;
-
-// TO-DO: Write documentation

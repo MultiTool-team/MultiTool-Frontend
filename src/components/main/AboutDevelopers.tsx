@@ -1,4 +1,4 @@
-import { DEVELOPERS } from '../../helpers/Main/developers';
+import { DEVELOPERS } from '../../helpers/main/developers';
 import AnimatedContainer from '../shared/AnimatedContainer';
 import DeveloperCard from './DeveloperCard';
 

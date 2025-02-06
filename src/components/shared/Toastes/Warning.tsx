@@ -10,7 +10,6 @@ interface IWarning {
 
 const Warning: React.FC<IWarning> = ({ text }) => {
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
-  console.log('Theme', darkMode);
   useEffect(() => {
     const notify = () => toast.warning(text);
     notify();

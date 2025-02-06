@@ -1,33 +1,22 @@
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
-import {
-  Blog,
-  Cinema,
-  Container,
-  Friends,
-  Header,
-  MainPage,
-  SEO,
-  Weather,
-} from './components';
+import { Container, Header, SEO } from './components';
 import { BrowserRouter, Route, Routes } from 'react-router';
+import { PAGES } from './helpers';
 
 function App() {
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);
-  const PAGES: { path: string; element: JSX.Element }[] = [
-    { path: '', element: <MainPage /> },
-    { path: 'weather', element: <Weather /> },
-    { path: 'cinema', element: <Cinema /> },
-    { path: 'blog', element: <Blog /> },
-    { path: 'friends', element: <Friends /> },
-  ];
 
   return (
     <div
       className={`h-full min-h-dvh w-full bg-[var(--bg-dark)] py-4 dark:bg-[var(--bg-light)] ${darkMode && 'dark'}`}
     >
       <BrowserRouter>
-        <SEO title='MultiTool' />
+        <SEO
+          title='MultiTool – Ultimate Productivity Toolkit'
+          description='MultiTool is a universal toolkit designed to solve various tasks and boost your productivity. Find everything you need for work and leisure in one place.'
+          keywords='multitool, utilities, productivity, tools, efficiency, work, leisure'
+        />
         <Header darkMode={darkMode} />
         <Container>
           <Routes>
