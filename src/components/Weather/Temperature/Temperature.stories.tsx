@@ -1,3 +1,4 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Temperature from './Temperature';
 import '../../../index.css';
 import { StoriesTemplate } from '../..';
@@ -27,19 +28,27 @@ export default {
       defaultValue: 'light',
     },
   },
-};
+} as ComponentMeta<typeof Temperature>;
 
-const Template = args => {
-  return (
-    <StoriesTemplate theme={args.theme}>
-      <Temperature {...args} />
-    </StoriesTemplate>
-  );
-};
+interface TemperatureStoryProps {
+  size: 'small' | 'medium' | 'large';
+  temperature?: number;
+  feelsLikeTemperature?: number;
+  theme: 'light' | 'dark';
+}
+
+const Template: ComponentStory<typeof Temperature> = (
+  args: TemperatureStoryProps
+) => (
+  <StoriesTemplate theme={args.theme}>
+    <Temperature {...args} />
+  </StoriesTemplate>
+);
 
 export const TemperatureStories = Template.bind({});
 TemperatureStories.args = {
   size: 'medium',
   temperature: 52,
+  feelsLikeTemperature: undefined,
   theme: 'light',
 };
