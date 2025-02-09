@@ -24,7 +24,7 @@ const videos: VideoData = {
 
 // weatherData.weather[0].main group
 interface weatherGroup {
-  weatherGroup: string;
+  weatherGroup?: string;
 }
 
 // TO-DO: find the solution for styling the video
@@ -37,7 +37,7 @@ const BackgroundVideo: React.FC<weatherGroup> = ({ weatherGroup }) => {
       muted
     >
       <source
-        src={clouds_video}
+        src={weatherGroup ?? clouds_video}
         type='video/mp4'
       />
     </video>

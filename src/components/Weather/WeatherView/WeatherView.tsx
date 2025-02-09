@@ -1,4 +1,7 @@
+import { useSelector } from 'react-redux';
 import { Temperature } from '../../';
+import { RootState } from '../../../store/store';
+import { useEffect, useState } from 'react';
 
 interface IWeatherView {
   title: string;
@@ -7,6 +10,16 @@ interface IWeatherView {
 }
 
 const WeatherView: React.FC<IWeatherView> = ({ title, icon, temperature }) => {
+  const weatherSelector = useSelector((state: RootState) => state.weather);
+  console.log(
+    'Debug',
+    weatherSelector?.weatherData?.weatherData.weather[0].icon
+  );
+
+  const currentOpenWeatherIcon =
+    weatherSelector?.weatherData?.weatherData.weather[0].icon;
+  const iconURL = `https://openweathermap.org/img/wn/${currentOpenWeatherIcon}@2x.png`;
+
   return (
     <div
       className={`flex ${typeof temperature === 'number' ? 'flex-col gap-4' : 'justify-between'} items-center`}
@@ -15,27 +28,29 @@ const WeatherView: React.FC<IWeatherView> = ({ title, icon, temperature }) => {
       {/* TODO change alt content; 
 	  it should be with more accessible  */}
       <img
-        src={icon}
-        alt='weather icon'
+        src={iconURL}
+        alt=''
+        width={48}
+        height={48}
       />
       {typeof temperature === 'number' ? (
         <Temperature
           size='small'
           temperature={temperature}
           classNameTemperatureColor='text-alt'
-		  />
-		) : (
-			<div className='flex items-center justify-between'>
+        />
+      ) : (
+        <div className='flex items-center justify-between'>
           <Temperature
             size='small'
             temperature={temperature[0]}
-			classNameTemperatureColor='text-alt'
-			/>
+            classNameTemperatureColor='text-alt'
+          />
 
           <Temperature
             size='small'
             temperature={temperature[1]}
-			classNameTemperatureColor='text-alt'
+            classNameTemperatureColor='text-alt'
           />
         </div>
       )}
