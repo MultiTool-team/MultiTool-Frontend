@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { setThemeSetting } from '../../features/themeSlice';
+import { setThemeSetting } from '../../store/features/themeSlice';
 import { ROUTES } from '../../helpers/routes/routes';
 import { Link } from 'react-router';
 import { ThemeIcon } from '..';

@@ -6,11 +6,17 @@ interface IWeatherState {
 }
 
 const loadWeatherFromStorage = (): IWeatherState => {
-  const storedData = localStorage.getItem('weather');
-  return storedData
-    ? JSON.parse(storedData)
-    : { weatherData: null, forecastData: null };
-};
+	const storedDataWeather = localStorage.getItem('weather');
+	const storedDataForecast = localStorage.getItem('forecast');
+  
+	return storedDataWeather && storedDataForecast
+	  ? {
+		  weatherData: JSON.parse(storedDataWeather),
+		  forecastData: JSON.parse(storedDataForecast),
+		}
+	  : { weatherData: null, forecastData: null };
+  };
+  
 
 const initialState: IWeatherState = loadWeatherFromStorage();
 

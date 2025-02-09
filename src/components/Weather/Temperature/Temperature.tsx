@@ -5,6 +5,7 @@ export interface TemperatureData {
   size?: ComponentSizes;
   temperature?: number;
   feelsLikeTemperature?: number;
+  classNameTemperatureColor?: string;
 }
 
 export type ComponentSizes = 'small' | 'medium' | 'large';
@@ -12,6 +13,7 @@ const Temperature: React.FC<TemperatureData> = ({
   size = 'medium',
   temperature,
   feelsLikeTemperature,
+  classNameTemperatureColor,
 }) => {
   // store key-value pairs for sizes
   const sizes: Record<ComponentSizes, string> = {
@@ -23,7 +25,9 @@ const Temperature: React.FC<TemperatureData> = ({
   return (
     <div className='temperatureSection mx-auto'>
       <div className='temperature flex justify-center'>
-        <h2 className={`text text-center ${sizes[size ?? 'medium']}`}>
+        <h2
+          className={`${classNameTemperatureColor ? classNameTemperatureColor : 'text'} text-center ${sizes[size ?? 'medium']} `}
+        >
           {<>{temperature ?? 'unknown'}</>}&deg;
         </h2>
       </div>

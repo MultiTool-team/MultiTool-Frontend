@@ -3,7 +3,11 @@ import { FaMapMarkerAlt } from 'react-icons/fa';
 import { BackgroundVideo, Temperature, Warning } from '..';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../store/store';
-import { setWeatherData, setForecastData, setLocation } from '../../features';
+import {
+  setWeatherData,
+  setForecastData,
+  setLocation,
+} from '../../store/features';
 
 const API_TOKEN = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
@@ -80,8 +84,8 @@ const PreviewWeather = () => {
   }, [city, latitude, longitude, dispatch, fetchWeatherData]);
 
   return (
-    <section className='relative flex h-120 flex-col items-center justify-center px-3'>
-      <BackgroundVideo weatherGroup={weather?.weather[0]?.main} />
+    <section className='relative flex h-120 w-full flex-col items-center justify-center px-3'>
+      <BackgroundVideo weatherGroup={weather?.weatherData.weather[0]?.main} />
       <div className='z-10'>
         {error && <Warning text={error} />}
 
@@ -99,11 +103,13 @@ const PreviewWeather = () => {
           <Temperature
             size='large'
             temperature={
-              weather?.main?.temp ? Math.round(weather.main.temp) : undefined
+              weather?.weatherData?.main?.temp
+                ? Math.round(weather?.weatherData?.main?.temp)
+                : undefined
             }
             feelsLikeTemperature={
-              weather?.main?.feels_like
-                ? Math.round(weather.main.feels_like)
+              weather?.weatherData?.main?.feels_like
+                ? Math.round(weather?.weatherData?.main?.feels_like)
                 : undefined
             }
           />

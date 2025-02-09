@@ -17,11 +17,13 @@ import Temperature from './Weather/Temperature/Temperature';
 import FeelsLikeTemperature from './Weather/FeelsLikeTemperature/FeelsLikeTemperature';
 import ThemeIcon from './Header/ThemeIcon';
 import BackgroundVideo from './Weather/BackgroundVideo';
+import DailyWeather from './Weather/DailyWeather';
 // Shared
 import Badge from './shared/Badge';
 import Warning from './shared/Toastes/Warning';
 import AnimatedContainer from './shared/AnimatedContainer';
 import StoriesTemplate from './shared/StoriesTemplate';
+import WeatherView from './Weather/WeatherView/WeatherView';
 export {
   Header,
   MainPage,
@@ -42,4 +44,6 @@ export {
   StoriesTemplate,
   ThemeIcon,
   BackgroundVideo,
+  DailyWeather,
+  WeatherView,
 };

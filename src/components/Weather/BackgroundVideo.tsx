@@ -31,7 +31,7 @@ interface weatherGroup {
 const BackgroundVideo: React.FC<weatherGroup> = ({ weatherGroup }) => {
   return (
     <video
-      className='absolute z-0 h-120 w-full overflow-hidden !rounded-[2%] object-cover px-5 blur-[1px]'
+      className='absolute z-0 h-120 w-full overflow-hidden rounded-4xl object-cover blur-[1px]'
       autoPlay
       loop
       muted
