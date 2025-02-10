@@ -7,24 +7,27 @@ export const DEVELOPERS = [
       ad voluptatem aliquam commodi, iure hic cum obcaecati harum, id unde
       voluptates impedit quisquam!`,
     roles: ['frontend', 'ux', 'maker', 'overrated'],
-  },
-  {
-    developerName: 'marat',
+    link: 'https://github.com/hellpes666',
+},
+{
+	developerName: 'marat',
     developerDefinition: 'pretty damn boy',
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
-      Exercitationem veritatis quas natus. Nobis, quis porro. Inventore,
-      ad voluptatem aliquam commodi, iure hic cum obcaecati harum, id unde
-      voluptates impedit quisquam!`,
+	Exercitationem veritatis quas natus. Nobis, quis porro. Inventore,
+	ad voluptatem aliquam commodi, iure hic cum obcaecati harum, id unde
+	voluptates impedit quisquam!`,
     roles: ['frontend', 'ui', 'friend'],
-  },
-  {
-    developerName: 'danchicic52',
+	link: 'https://github.com/maratdev0210',
+},
+{
+	developerName: 'danchicic52',
     developerDefinition: 'Ам Нямыч',
     description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
       Exercitationem veritatis quas natus. Nobis, quis porro. Inventore,
       ad voluptatem aliquam commodi, iure hic cum obcaecati harum, id unde
       voluptates impedit quisquam!`,
-    roles: ['backend', 'ui', 'friend'],
+	  roles: ['backend', 'ui', 'friend'],
+	  link: 'https://github.com/Danchicic',
   },
   {
     developerName: 'spaklak',
@@ -34,5 +37,6 @@ export const DEVELOPERS = [
       ad voluptatem aliquam commodi, iure hic cum obcaecati harum, id unde
       voluptates impedit quisquam!`,
     roles: ['Machine Learning', 'friend'],
+	link: 'https://github.com/Spaklak',
   },
 ] as const;

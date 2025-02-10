@@ -4,7 +4,6 @@ const MainPage = () => {
   return (
     <div className='flex w-full flex-col items-center gap-36 text-center'>
       <Quote />
-      {/* //ABOUT SECITON */}
       <AboutDevelopers />
     </div>
   );

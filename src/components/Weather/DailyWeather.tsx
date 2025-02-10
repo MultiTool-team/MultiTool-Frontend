@@ -13,7 +13,7 @@ const DailyWeather = () => {
     temperature: [12, 24],
   };
   return (
-    <section className='bg flex h-120 w-full items-center justify-between rounded-4xl px-8 py-4'>
+    <section className='bg text-alt flex h-120 w-full items-center justify-between rounded-4xl px-8 py-4'>
       <div>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam ipsam
         facilis in voluptate quidem minima illum tempore error aspernatur saepe

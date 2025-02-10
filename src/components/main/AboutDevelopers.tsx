@@ -15,6 +15,7 @@ const AboutDevelopers = () => {
               developerDefinition={dev.developerDefinition}
               description={dev.description}
               roles={dev.roles}
+              link={dev.link}
             />
           </AnimatedContainer>
         ))}

@@ -1,11 +1,13 @@
 import { memo } from 'react';
 import { Badge } from '..';
+import { Link } from 'react-router';
 
 interface IDeveloperCard {
   developerName: string;
   developerDefinition: string;
   description: string;
   roles: readonly string[];
+  link: string;
 }
 
 const DeveloperCard: React.FC<IDeveloperCard> = ({
@@ -13,9 +15,15 @@ const DeveloperCard: React.FC<IDeveloperCard> = ({
   developerDefinition,
   description,
   roles,
+  link,
 }) => {
   return (
-    <div className='flex h-full flex-col gap-4 rounded-xl border border-[var(--bg-dark)] px-4 py-6 sm:px-6 sm:py-8 dark:border-[var(--bg-light)]'>
+    <Link
+      to={link}
+      target='_blank'
+      rel='noopener noreferrer'
+      className='flex h-full flex-col gap-4 rounded-xl border border-[var(--bg-dark)] px-4 py-6 sm:px-6 sm:py-8 dark:border-[var(--bg-light)]'
+    >
       <h3 className='text-alt text-center text-3xl font-bold uppercase sm:text-left'>
         {developerName}
       </h3>
@@ -37,7 +45,7 @@ const DeveloperCard: React.FC<IDeveloperCard> = ({
           ))}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

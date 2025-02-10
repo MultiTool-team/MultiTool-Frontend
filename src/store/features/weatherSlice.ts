@@ -75,11 +75,11 @@ const weatherSlice = createSlice({
   name: 'weather',
   initialState,
   reducers: {
-    setWeatherData: (state, action: PayloadAction<any>) => {
+    setWeatherData: (state, action: PayloadAction<IWeatherState>) => {
       state.weatherData = action.payload.weatherData;
       localStorage.setItem('weather', JSON.stringify(state));
     },
-    setForecastData: (state, action: PayloadAction<any>) => {
+    setForecastData: (state, action: PayloadAction<IWeatherState>) => {
       state.forecastData = action.payload.forecastData;
       localStorage.setItem('forecast', JSON.stringify(state));
     },
