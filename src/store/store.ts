@@ -1,14 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit';
 import themeSlice from './features/themeSlice';
 import locationSlice from './features/locationSlice';
-import weatherSlice from './features/weatherSlice';
+import { weatherApi } from '../components/Weather/api/weatherApi';
 
 export const store = configureStore({
   reducer: {
     theme: themeSlice,
     location: locationSlice,
-    weather: weatherSlice,
+    [weatherApi.reducerPath]: weatherApi.reducer,
   },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware().concat(weatherApi.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

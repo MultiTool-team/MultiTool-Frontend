@@ -1,6 +1,4 @@
-import { useSelector } from 'react-redux';
 import { Temperature } from '../../';
-import { RootState } from '../../../store/store';
 
 interface IWeatherView {
   title: string;
@@ -9,17 +7,6 @@ interface IWeatherView {
 }
 
 const WeatherView: React.FC<IWeatherView> = ({ title, icon, temperature }) => {
-  const weatherSelector = useSelector((state: RootState) => state.weather);
-  console.log(
-    'Debug',
-    weatherSelector?.weatherData?.weatherData.weather[0].icon
-  );
-
-  const currentOpenWeatherIcon =
-    weatherSelector?.weatherData?.weatherData.weather[0].icon;
-	//TODO: Change GET URL to forecast 7 days
-  const iconURL = `https://openweathermap.org/img/wn/${currentOpenWeatherIcon}@2x.png`;
-
   return (
     <div
       className={`flex ${typeof temperature === 'number' ? 'flex-col gap-4' : 'justify-between'} items-center`}
@@ -28,7 +15,7 @@ const WeatherView: React.FC<IWeatherView> = ({ title, icon, temperature }) => {
       {/* TODO change alt content; 
 	  it should be with more accessible  */}
       <img
-        src={iconURL}
+        src={icon}
         alt='weather icon'
         width={48}
         height={48}

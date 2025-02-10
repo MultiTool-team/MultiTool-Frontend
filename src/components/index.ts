@@ -4,7 +4,7 @@ import Container from './Container';
 import SEO from './SEO/Seo';
 
 // Another Pages
-import Weather from './Weather/Weather';
+import Weather from '../pages/Weather';
 import Cinema from './Cinema/Cinema';
 import Friends from './Friends/Friends';
 import Blog from './Blog/Blog';
