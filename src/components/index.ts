@@ -17,7 +17,7 @@ import Temperature from './Weather/Temperature/Temperature';
 import FeelsLikeTemperature from './Weather/FeelsLikeTemperature/FeelsLikeTemperature';
 import ThemeIcon from './Header/ThemeIcon';
 import BackgroundVideo from './Weather/BackgroundVideo';
-import DailyWeather from './Weather/DailyWeather';
+import ForecastWeather from './Weather/ForecastWeather';
 // Shared
 import Badge from './shared/Badge';
 import Warning from './shared/Toastes/Warning';
@@ -44,6 +44,6 @@ export {
   StoriesTemplate,
   ThemeIcon,
   BackgroundVideo,
-  DailyWeather,
+  ForecastWeather,
   WeatherView,
 };

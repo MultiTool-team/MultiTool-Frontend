@@ -12,6 +12,10 @@
     @apply bg-[var(--bg-light)] dark:bg-[var(--bg-dark)];
   }
 
+  .bg-alt {
+    @apply dark:bg-[var(--bg-light)] bg-[var(--bg-dark)];
+  }
+
   .title {
     @apply font-extrabold tracking-wide text-[var(--title-light)] sm:text-xl lg:text-2xl dark:text-[var(--title-dark)];
   }

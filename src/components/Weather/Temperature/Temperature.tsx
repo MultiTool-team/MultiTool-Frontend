@@ -23,12 +23,12 @@ const Temperature: React.FC<TemperatureData> = ({
   };
 
   return (
-    <div className='temperatureSection mx-auto'>
+    <div className='mx-auto'>
       <div className='temperature flex justify-center'>
         <h2
           className={`${classNameTemperatureColor ? classNameTemperatureColor : 'text'} text-center ${sizes[size ?? 'medium']} `}
         >
-          {<>{temperature ?? 'unknown'}</>}&deg;
+          {temperature ?? 'unknown'}&deg;
         </h2>
       </div>
       {feelsLikeTemperature && (

@@ -1,4 +1,41 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+interface IForecastData {
+  list: {
+    dt: number;
+    main: {
+      temp: number;
+      feels_like: number;
+      temp_min: number;
+      temp_max: number;
+      pressure: number;
+      humidity: number;
+    };
+    weather: {
+      id: number;
+      main: string;
+      description: string;
+      icon: string;
+    }[];
+    clouds: {
+      all: number;
+    };
+    wind: {
+      speed: number;
+      deg: number;
+      gust?: number;
+    };
+    visibility: number;
+    pop: number;
+  }[];
+  city: {
+    id: number;
+    name: string;
+    country: string;
+    timezone: number;
+    sunrise: number;
+    sunset: number;
+  };
+}
 
 interface IWeatherData {
   weatherData: {
@@ -54,7 +91,7 @@ interface IWeatherData {
 
 interface IWeatherState {
   weatherData: IWeatherData | null;
-  forecastData: any | null;
+  forecastData: IForecastData  | null;
 }
 
 const loadWeatherFromStorage = (): IWeatherState => {

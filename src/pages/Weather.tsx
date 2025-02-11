@@ -1,5 +1,5 @@
 import React from 'react';
-import { DailyWeather, PreviewWeather, SEO } from '../components';
+import { ForecastWeather, PreviewWeather, SEO } from '../components';
 // import GeoLocation from './GeoLocation.tsx';
 
 const Weather: React.FC = () => {
@@ -12,7 +12,7 @@ const Weather: React.FC = () => {
       />
       <div className='flex h-full w-full flex-col items-center justify-center gap-8'>
         <PreviewWeather />
-        <DailyWeather />
+        <ForecastWeather />
       </div>
     </>
   );

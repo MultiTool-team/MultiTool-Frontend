@@ -3,20 +3,25 @@ import { Temperature } from '../../';
 interface IWeatherView {
   title: string;
   icon: string;
-  temperature: number | number[];
+  temperature: number | number[] | undefined;
 }
 
-const WeatherView: React.FC<IWeatherView> = ({ title, icon, temperature }) => {
+const ForecastWeather: React.FC<IWeatherView> = ({
+  title,
+  icon,
+  temperature,
+}) => {
   return (
     <div
-      className={`flex ${typeof temperature === 'number' ? 'flex-col gap-4' : 'justify-between'} items-center`}
+      className={`flex ${typeof temperature === 'number' ? 'flex-col gap-4' : 'justify-between'} bg-alt inline-flex items-center rounded-4xl px-3 py-2`}
     >
-      <h2>{title}</h2>
+      <h2 className='text'>{title}</h2>
       {/* TODO change alt content; 
 	  it should be with more accessible  */}
       <img
         src={icon}
         alt='weather icon'
+        className='text mx-auto'
         width={48}
         height={48}
       />
@@ -24,20 +29,17 @@ const WeatherView: React.FC<IWeatherView> = ({ title, icon, temperature }) => {
         <Temperature
           size='small'
           temperature={temperature}
-          classNameTemperatureColor='text-alt'
         />
       ) : (
         <div className='flex items-center justify-between'>
           <Temperature
             size='small'
             temperature={temperature[0]}
-            classNameTemperatureColor='text-alt'
           />
 
           <Temperature
             size='small'
             temperature={temperature[1]}
-            classNameTemperatureColor='text-alt'
           />
         </div>
       )}
@@ -46,4 +48,4 @@ const WeatherView: React.FC<IWeatherView> = ({ title, icon, temperature }) => {
   );
 };
 
-export default WeatherView;
+export default ForecastWeather;
