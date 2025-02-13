@@ -21,6 +21,10 @@ import ForecastWeather from './Weather/ForecastWeather';
 // Shared
 import Badge from './shared/Badge';
 import Warning from './shared/Toastes/Warning';
+import Success from './shared/Toastes/Success';
+import Error from './shared/Toastes/Error';
+import Info from './shared/Toastes/Info';
+import Notification from './shared/Toastes/Notification';
 import AnimatedContainer from './shared/AnimatedContainer';
 import StoriesTemplate from './shared/StoriesTemplate';
 import WeatherView from './Weather/WeatherView/WeatherView';
@@ -46,4 +50,8 @@ export {
   BackgroundVideo,
   ForecastWeather,
   WeatherView,
+  Success,
+  Error,
+  Info,
+  Notification,
 };

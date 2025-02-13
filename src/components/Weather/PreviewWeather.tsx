@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { BackgroundVideo, Temperature, Warning } from '..';
 import { useSelector } from 'react-redux';
@@ -6,25 +5,23 @@ import { RootState } from '../../store/store';
 import { useGetCurrentWeatherQuery } from './api/weatherApi';
 
 const PreviewWeather = () => {
-  const { city } = useSelector((state: RootState) => state.location);
+  const { lat, lon } = useSelector((state: RootState) => state.location);
 
   const POLLING_INTERVAL: number = 150000; // 2min 30sec
 
   const { data: weatherData, error: weatherError } = useGetCurrentWeatherQuery(
-    city,
+    { lat: lat, lon: lon },
     {
-      skip: !city,
       pollingInterval: POLLING_INTERVAL,
     }
   );
 
-  const error = weatherError;
-  if (error) {
-    return <Warning text='Ошибка загрузки данных' />;
-  }
-
   return (
     <section className='relative flex h-120 w-full flex-col items-center justify-center px-3'>
+      {weatherError && (
+        <Warning text='Ошибка загрузки данных. Возможно стоит проверить разрешение на геолокацию.' />
+      )}
+
       <BackgroundVideo weatherGroup={weatherData?.weather[0]?.main} />
       <div className='z-10'>
         <div className='flex flex-col items-center text-4xl font-bold'>
@@ -34,7 +31,7 @@ const PreviewWeather = () => {
               size={24}
             />
             <p className='text-3xl font-extrabold tracking-wide text-[var(--title-dark)]'>
-              {city || 'Unknown'}
+              {weatherData?.name || 'Unknown'}
             </p>
           </span>
           <Temperature
@@ -46,7 +43,7 @@ const PreviewWeather = () => {
             }
             feelsLikeTemperature={
               weatherData?.main?.feels_like
-                ? Math.ceil(weatherData.main.temp)
+                ? Math.ceil(weatherData.main.feels_like)
                 : undefined
             }
           />

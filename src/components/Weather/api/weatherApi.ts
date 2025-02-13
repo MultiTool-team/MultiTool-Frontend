@@ -108,14 +108,17 @@ export const weatherApi = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api.openweathermap.org/data/2.5/',
   }),
-  endpoints: (builder) => ({
-    getCurrentWeather: builder.query<CurrentWeatherResponse, string>({
-      query: (city: string) =>
-        `weather?q=${city}&appid=${WEATHER_API_TOKEN}&units=metric&lang=ru`,
+  endpoints: builder => ({
+    getCurrentWeather: builder.query<
+      CurrentWeatherResponse,
+      { lat: number; lon: number }
+    >({
+      query: ({ lat, lon }) =>
+        `weather?lat=${lat}&lon=${lon}&appid=${WEATHER_API_TOKEN}&units=metric&lang=ru`,
     }),
-    getForecast: builder.query<ForecastResponse, string>({
-      query: (city: string) =>
-        `forecast?q=${city}&appid=${WEATHER_API_TOKEN}&units=metric`,
+    getForecast: builder.query<ForecastResponse, { lat: number; lon: number }>({
+      query: ({ lat, lon }) =>
+        `forecast?lat=${lat}&lon=${lon}&appid=${WEATHER_API_TOKEN}&units=metric`,
     }),
   }),
 });

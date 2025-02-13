@@ -1,8 +1,69 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ForecastWeather, PreviewWeather, SEO } from '../components';
-// import GeoLocation from './GeoLocation.tsx';
+import { useDispatch } from 'react-redux';
+import { setLocation } from '../store/features';
 
 const Weather: React.FC = () => {
+  const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(
+    null
+  );
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    let watchId: number | null = null;
+
+    const fetchUserLocation = async () => {
+      try {
+        const location = await getUserLocation();
+        setCoords(location);
+        dispatch(setLocation(location));
+      } catch (error) {
+        localStorage.clear();
+        console.error('Ошибка при получении координат:', error);
+      }
+    };
+
+    const startWatchingLocation = () => {
+      if (!navigator.geolocation) {
+        console.error('Geolocation не поддерживается браузером');
+        return;
+      }
+
+      watchId = navigator.geolocation.watchPosition(
+        position => {
+          const newLocation = {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude,
+          };
+          setCoords(newLocation);
+          dispatch(setLocation(newLocation));
+        },
+        error => {
+          console.error('Ошибка при отслеживании координат:', error);
+        },
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 }
+      );
+    };
+
+    const stopWatchingLocation = () => {
+      if (watchId !== null) {
+        navigator.geolocation.clearWatch(watchId);
+        watchId = null;
+      }
+    };
+
+    // Инициализация получения координат
+    fetchUserLocation();
+    startWatchingLocation();
+
+    // Очистка слежения при размонтировании компонента
+    return () => {
+      stopWatchingLocation();
+    };
+  }, [dispatch]);
+
+  console.log(coords);
+
   return (
     <>
       <SEO
@@ -19,3 +80,25 @@ const Weather: React.FC = () => {
 };
 
 export default Weather;
+
+// Функция для получения текущей геолокации пользователя
+const getUserLocation = (): Promise<{ lat: number; lon: number }> => {
+  return new Promise((resolve, reject) => {
+    if (!navigator.geolocation) {
+      reject(new Error('Geolocation не поддерживается браузером'));
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        resolve({
+          lat: position.coords.latitude,
+          lon: position.coords.longitude,
+        });
+      },
+      error => {
+        reject(error);
+      }
+    );
+  });
+};
