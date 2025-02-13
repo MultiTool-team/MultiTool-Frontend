@@ -18,6 +18,7 @@ import FeelsLikeTemperature from './Weather/FeelsLikeTemperature/FeelsLikeTemper
 import ThemeIcon from './Header/ThemeIcon';
 import BackgroundVideo from './Weather/BackgroundVideo';
 import ForecastWeather from './Weather/ForecastWeather';
+import Roadmap from './Main/Roadmap';
 // Shared
 import Badge from './shared/Badge';
 import Warning from './shared/Toastes/Warning';
@@ -54,4 +55,5 @@ export {
   Error,
   Info,
   Notification,
+  Roadmap,
 };

@@ -40,3 +40,5 @@ export const DEVELOPERS = [
 	link: 'https://github.com/Spaklak',
   },
 ] as const;
+
+export type IDeveloperNames = typeof DEVELOPERS[number]['developerName'];
