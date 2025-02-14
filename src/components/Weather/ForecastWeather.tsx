@@ -77,13 +77,13 @@ const ForecastWeather = () => {
             </p>
             <hr className='mt-2 mb-6 border-[var(--text-light)] dark:border-[var(--text-dark)]' />
             {forecastOpenWeather ? (
-              <div className='flex flex-col items-center gap-4'>
+              <div className='mx-12 flex flex-col items-center gap-4'>
                 {forecastWeather?.list
                   ?.filter((_, index) => index % 8 === 0)
                   .slice(0, 7)
                   .map(forecastData => (
                     <WeatherView
-                      key={uuid()}
+                      key={forecastData.dt}
                       title={forecastData.dt_txt
                         .split(' ')[0]
                         .split('-')
