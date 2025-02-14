@@ -1,5 +1,5 @@
 import { AboutDevelopers, Quote, Roadmap } from '..';
-import { ISkills } from './Roadmap';
+import { IRoadMap } from './Roadmap';
 
 const MainPage = () => {
   const SKILLS: IRoadMap[] = [
@@ -16,7 +16,7 @@ const MainPage = () => {
     },
     {
       developer: 'spaklak',
-      main_color: '#c3073f',
+      main_color: '#1E90FF',
       skills: {
         skill_issue: 100,
         frontend: 11,
@@ -27,7 +27,7 @@ const MainPage = () => {
     },
     {
       developer: 'danchicic52',
-      main_color: '#c3073f',
+      main_color: '#92c640',
       skills: {
         skill_issue: 100,
         frontend: 52,
@@ -38,7 +38,7 @@ const MainPage = () => {
     },
     {
       developer: 'marat',
-      main_color: '#c3073f',
+      main_color: '#0000FF',
       skills: {
         skill_issue: 100,
         frontend: 72,

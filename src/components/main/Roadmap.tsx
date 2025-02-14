@@ -18,7 +18,7 @@ export interface ISkills {
   aura: number;
 }
 
-interface IRoadMap {
+export interface IRoadMap {
   skills: ISkills;
   developer: IDeveloperNames;
   main_color: string;
