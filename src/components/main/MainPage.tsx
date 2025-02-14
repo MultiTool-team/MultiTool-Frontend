@@ -1,4 +1,4 @@
-import { AboutDevelopers, Quote, Roadmap } from '..';
+import { AboutDevelopers, Library, Quote, Roadmap } from '..';
 import { IRoadMap } from './Roadmap';
 
 const MainPage = () => {
@@ -38,7 +38,7 @@ const MainPage = () => {
     },
     {
       developer: 'marat',
-      main_color: '#0000FF',
+      main_color: '#7b68ee',
       skills: {
         skill_issue: 100,
         frontend: 72,
@@ -51,7 +51,7 @@ const MainPage = () => {
   return (
     <div className='flex w-full flex-col items-center gap-36 text-center'>
       <Quote />
-      <AboutDevelopers />.
+      <AboutDevelopers />
       <section className='bg w-full rounded-xl px-18 py-6'>
         <h2 className='title mx-auto'>Stats</h2>
         <div className='flex gap-6'>
@@ -60,6 +60,8 @@ const MainPage = () => {
           ))}
         </div>
       </section>
+
+      <Library />
     </div>
   );
 };

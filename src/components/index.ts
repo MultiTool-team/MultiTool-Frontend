@@ -19,6 +19,7 @@ import ThemeIcon from './Header/ThemeIcon';
 import BackgroundVideo from './Weather/BackgroundVideo';
 import ForecastWeather from './Weather/ForecastWeather';
 import Roadmap from './Main/Roadmap';
+import Library from './Main/Library';
 // Shared
 import Badge from './shared/Badge';
 import Warning from './shared/Toastes/Warning';
@@ -56,4 +57,5 @@ export {
   Info,
   Notification,
   Roadmap,
+  Library,
 };
