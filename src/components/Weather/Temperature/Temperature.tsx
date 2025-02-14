@@ -1,6 +1,6 @@
 import FeelsLikeTemperature from '../FeelsLikeTemperature/FeelsLikeTemperature';
 
-// temporary store the data here. Move the props data to another file later.
+// Temporary store the data here. Move the props data to another file later.
 export interface TemperatureData {
   size?: ComponentSizes;
   temperature?: number;
@@ -9,13 +9,14 @@ export interface TemperatureData {
 }
 
 export type ComponentSizes = 'small' | 'medium' | 'large';
+
 const Temperature: React.FC<TemperatureData> = ({
   size = 'medium',
   temperature,
   feelsLikeTemperature,
   classNameTemperatureColor,
 }) => {
-  // store key-value pairs for sizes
+  // Store key-value pairs for sizes
   const sizes: Record<ComponentSizes, string> = {
     small: 'text-3xl',
     medium: 'text-5xl',
@@ -26,13 +27,17 @@ const Temperature: React.FC<TemperatureData> = ({
     <div className='mx-auto'>
       <div className='temperature flex justify-center'>
         <h2
-          className={`${classNameTemperatureColor ? classNameTemperatureColor : 'text'} text-center ${sizes[size ?? 'medium']} `}
+          className={`${classNameTemperatureColor || 'text'} text-center ${sizes[size]} font-bold`}
+          aria-label={`Current temperature: ${temperature ?? 'unknown'}°`}
         >
           {temperature ?? 'unknown'}&deg;
         </h2>
       </div>
       {feelsLikeTemperature && (
-        <FeelsLikeTemperature feelsLikeTemperature={feelsLikeTemperature} />
+        <FeelsLikeTemperature
+          feelsLikeTemperature={feelsLikeTemperature}
+          className='mt-2'
+        />
       )}
     </div>
   );
