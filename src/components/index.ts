@@ -1,13 +1,10 @@
 import Header from './Header/Header';
-import MainPage from './Main/MainPage';
+import MainPage from '../pages/MainPage';
 import Container from './Container';
 import SEO from './SEO/Seo';
 
 // Another Pages
-import Weather from '../pages/Weather';
-import Cinema from './Cinema/Cinema';
-import Friends from './Friends/Friends';
-import Blog from './Blog/Blog';
+import { Friends, Cinema, Weather, Blog } from '../pages';
 
 // Additional
 import PreviewWeather from './Weather/PreviewWeather';

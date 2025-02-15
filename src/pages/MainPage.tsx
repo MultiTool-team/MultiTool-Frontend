@@ -1,5 +1,5 @@
-import { AboutDevelopers, Library, Quote, Roadmap } from '..';
-import { IRoadMap } from './Roadmap';
+import { AboutDevelopers, Library, Quote, Roadmap } from '../components';
+import { IRoadMap } from '../components/Main/Roadmap';
 
 const MainPage = () => {
   const SKILLS: IRoadMap[] = [
@@ -8,8 +8,8 @@ const MainPage = () => {
       main_color: '#c3073f',
       skills: {
         skill_issue: 100,
-        frontend: 89,
-        backend: 33,
+        frontend: 99,
+        backend: 39,
         machine_learning: 1,
         aura: 99,
       },
