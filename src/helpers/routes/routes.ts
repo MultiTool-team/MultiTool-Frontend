@@ -4,6 +4,7 @@ enum Route {
   Cinema = 'Cinema',
   Blog = 'Blog',
   Friends = 'Friends',
+  Shop = 'Shop',
 }
 
 // Used in Header
@@ -12,4 +13,5 @@ export const ROUTES: Route[] = [
   Route.Cinema,
   Route.Blog,
   Route.Friends,
+  Route.Shop,
 ];
