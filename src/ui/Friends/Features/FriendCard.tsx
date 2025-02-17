@@ -22,9 +22,8 @@ const FriendCard: React.FC<FriendCardProps> = ({
   return (
     <div
       className={cn(
-        'group flex w-full cursor-pointer items-center gap-4 rounded-xl p-4 transition-colors',
-        'hover:bg-accent/50',
-        isActive ? 'bg-alt text' : 'bg-background',
+        'group flex w-full cursor-pointer items-center gap-4 rounded-xl p-4 transition-all',
+        isActive ? 'bg-alt text' : 'bg',
         className
       )}
       onClick={onClick}

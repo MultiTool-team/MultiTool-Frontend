@@ -53,7 +53,6 @@ const Chat = () => {
                   unreadCount={friend.unreadMessages}
                   lastMessage={friend.lastMessage}
                   onClick={() => setSelectedChatId(friend.id)}
-                  className='hover:bg-accent/50 transition-colors'
                 />
               ))}
             </div>
