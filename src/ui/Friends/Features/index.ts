@@ -1,3 +1,4 @@
-import FriendCard from "./FriendCard";
+import FriendCard from './FriendCard';
+import EmptyChatList from './EmptyChatPlaceholder';
 
-export { FriendCard };
+export { FriendCard, EmptyChatList };
