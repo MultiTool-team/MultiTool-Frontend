@@ -1,6 +1,6 @@
-import { MainPage, Weather, Cinema, Blog, Friends } from '../../components';
+import { Blog, Cinema, Friends, MainPage, Weather } from '..';
 
-export const PAGES: { path: string; element: JSX.Element }[] = [
+export const PAGES = [
   { path: '', element: <MainPage /> },
   { path: 'weather', element: <Weather /> },
   { path: 'cinema', element: <Cinema /> },

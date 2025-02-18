@@ -1,66 +1,16 @@
-import { AboutDevelopers, Library, Quote, Roadmap } from '../components';
-import { IRoadMap } from '../components/Main/Roadmap';
+import {
+  AboutDevelopers,
+  DeveloperStats,
+  Library,
+  Quote,
+} from '../ui/Main/Widgets';
 
 const MainPage = () => {
-  const SKILLS: IRoadMap[] = [
-    {
-      developer: 'hellpes',
-      main_color: '#c3073f',
-      skills: {
-        skill_issue: 100,
-        frontend: 99,
-        backend: 39,
-        machine_learning: 1,
-        aura: 99,
-      },
-    },
-    {
-      developer: 'spaklak',
-      main_color: '#1E90FF',
-      skills: {
-        skill_issue: 100,
-        frontend: 11,
-        backend: 22,
-        machine_learning: 100,
-        aura: 99,
-      },
-    },
-    {
-      developer: 'danchicic52',
-      main_color: '#92c640',
-      skills: {
-        skill_issue: 100,
-        frontend: 52,
-        backend: 99,
-        machine_learning: 1,
-        aura: 99,
-      },
-    },
-    {
-      developer: 'marat',
-      main_color: '#7b68ee',
-      skills: {
-        skill_issue: 100,
-        frontend: 72,
-        backend: 1,
-        machine_learning: 1,
-        aura: 47,
-      },
-    },
-  ];
   return (
     <div className='flex w-full flex-col items-center gap-36 text-center'>
       <Quote />
       <AboutDevelopers />
-      <section className='bg w-full rounded-xl px-18 py-6'>
-        <h2 className='title mx-auto'>Stats</h2>
-        <div className='flex gap-6'>
-          {SKILLS.map(developer => (
-            <Roadmap {...developer} />
-          ))}
-        </div>
-      </section>
-
+      <DeveloperStats />
       <Library />
     </div>
   );

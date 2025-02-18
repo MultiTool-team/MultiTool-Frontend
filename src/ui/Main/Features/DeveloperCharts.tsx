@@ -8,7 +8,7 @@ import {
   PolarRadiusAxis,
   ResponsiveContainer,
 } from 'recharts';
-import { IDeveloperNames } from '../../helpers/main/developers';
+import { IDeveloperNames } from '../helpers/developers/developersName';
 
 export interface ISkills {
   skill_issue: number;
@@ -18,13 +18,17 @@ export interface ISkills {
   aura: number;
 }
 
-export interface IRoadMap {
+export interface IDeveloperStats {
   skills: ISkills;
   developer: IDeveloperNames;
   main_color: string;
 }
 
-const Roadmap: React.FC<IRoadMap> = ({ skills, developer, main_color }) => {
+const DeveloperCharts: React.FC<IDeveloperStats> = ({
+  skills,
+  developer,
+  main_color,
+}) => {
   const data = [
     {
       subject: 'Skill Issue',
@@ -86,4 +90,4 @@ const Roadmap: React.FC<IRoadMap> = ({ skills, developer, main_color }) => {
   );
 };
 
-export default Roadmap;
+export default DeveloperCharts;

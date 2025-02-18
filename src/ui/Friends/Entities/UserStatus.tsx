@@ -23,7 +23,7 @@ const UserStatus: React.FC<UserStatusProps> = ({
 
   const statusColors = {
     online: 'bg-emerald-500',
-    offline: 'bg-muted-foreground',
+    offline: 'bg-red-600',
     away: 'bg-amber-500',
   };
 

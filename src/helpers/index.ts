@@ -1,4 +1,5 @@
-import { DEVELOPERS } from './main/developers';
 import { ROUTES } from './routes/routes';
-import { PAGES } from './pages/pages';
+import { DEVELOPERS } from '../ui/Main/helpers/developers/developers';
+import { PAGES } from '../pages/helper/pages';
+
 export { ROUTES, DEVELOPERS, PAGES };
