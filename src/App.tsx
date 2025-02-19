@@ -1,8 +1,10 @@
 import { useSelector } from 'react-redux';
 import { RootState } from './store/store';
-import { Container, Header, SEO } from './components';
 import { BrowserRouter, Route, Routes } from 'react-router';
-import { PAGES } from './helpers';
+import Container from './app/Container/Container';
+import { SEO } from './app/SEO';
+import { PAGES } from './pages/helper/pages';
+import { Header } from './widgets/header';
 
 function App() {
   const darkMode = useSelector((state: RootState) => state.theme.darkMode);

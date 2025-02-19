@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { ForecastWeather, PreviewWeather, SEO } from '../components';
 import { useDispatch } from 'react-redux';
 import { setLocation } from '../store/features';
+import { SEO } from '../app/SEO';
+import { PreviewWeather } from '../widgets/weather';
+import { ForecastWeather } from '../widgets/weather/components';
 
 const Weather: React.FC = () => {
   const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(

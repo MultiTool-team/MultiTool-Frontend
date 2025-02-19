@@ -3,7 +3,7 @@ import {
   DeveloperStats,
   Library,
   Quote,
-} from '../ui/Main/Widgets';
+} from '../widgets/main';
 
 const MainPage = () => {
   return (

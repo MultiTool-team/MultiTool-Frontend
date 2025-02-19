@@ -1,5 +1,5 @@
-import { SEO } from '../components';
-import { Chat } from '../ui/Friends/Widgets';
+import { SEO } from "../app/SEO";
+import Chat from "../widgets/chat/Chat";
 
 const Friends = () => {
   return (
